@@ -1,0 +1,1249 @@
+
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="theme-color" content="#090b0e">
+
+<link rel="manifest" href="manifest.webmanifest">
+
+<title>PinocchioExclu</title>
+
+<style>
+
+:root {
+
+ --bg:#090b0e;
+
+ --card:#14181d;
+
+ --line:#292f36;
+
+ --text:#f4f4f4;
+
+ --muted:#9ba4ad;
+
+ --gold:#b89a64;
+
+ --blue:#80bce8;
+
+ --green:#78c99c;
+
+ --red:#e28b8b;
+
+}
+
+* { box-sizing:border-box; }
+
+body {
+
+ margin:0;
+
+ background:var(--bg);
+
+ color:var(--text);
+
+ font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+
+ padding-bottom:90px;
+
+}
+
+header {
+
+ padding:22px 17px;
+
+ display:flex;
+
+ justify-content:space-between;
+
+ align-items:center;
+
+ border-bottom:1px solid var(--line);
+
+}
+
+.logo {
+
+ display:flex;
+
+ align-items:center;
+
+ gap:12px;
+
+}
+
+.logo-icon {
+
+ width:43px;
+
+ height:43px;
+
+ border:1px solid #62543a;
+
+ border-radius:13px;
+
+ display:grid;
+
+ place-items:center;
+
+ color:var(--gold);
+
+ font:27px Georgia;
+
+}
+
+h1 {
+
+ font:21px Georgia,serif;
+
+ margin:0;
+
+}
+
+.subtitle {
+
+ color:var(--muted);
+
+ font-size:10px;
+
+ letter-spacing:1px;
+
+ margin-top:4px;
+
+}
+
+button {
+
+ cursor:pointer;
+
+ font:inherit;
+
+}
+
+.settings {
+
+ background:var(--card);
+
+ color:white;
+
+ border:1px solid var(--line);
+
+ border-radius:11px;
+
+ padding:10px;
+
+}
+
+.container {
+
+ max-width:700px;
+
+ margin:auto;
+
+ padding:16px;
+
+}
+
+.stats {
+
+ display:grid;
+
+ grid-template-columns:repeat(3,1fr);
+
+ gap:8px;
+
+ margin-bottom:20px;
+
+}
+
+.stat {
+
+ background:var(--card);
+
+ border:1px solid var(--line);
+
+ border-radius:13px;
+
+ padding:13px 5px;
+
+ text-align:center;
+
+}
+
+.stat span {
+
+ color:var(--muted);
+
+ font-size:11px;
+
+}
+
+.stat strong {
+
+ display:block;
+
+ font-size:21px;
+
+ margin-top:6px;
+
+}
+
+.gold {color:var(--gold)}
+
+.green {color:var(--green)}
+
+.red {color:var(--red)}
+
+.tabs {
+
+ display:flex;
+
+ background:#11151a;
+
+ padding:5px;
+
+ border:1px solid var(--line);
+
+ border-radius:13px;
+
+ margin-bottom:20px;
+
+}
+
+.tabs button {
+
+ flex:1;
+
+ padding:11px 3px;
+
+ border:0;
+
+ border-radius:9px;
+
+ background:none;
+
+ color:var(--muted);
+
+ font-size:13px;
+
+}
+
+.tabs button.active {
+
+ background:#252118;
+
+ color:#e3d0a7;
+
+}
+
+.notice {
+
+ background:#171819;
+
+ border:1px solid #413a2d;
+
+ border-radius:13px;
+
+ padding:14px;
+
+ margin-bottom:23px;
+
+ font-size:13px;
+
+}
+
+.notice strong {color:#e2d2b2}
+
+.notice p {color:var(--muted);margin-bottom:0}
+
+.section-title {
+
+ display:flex;
+
+ justify-content:space-between;
+
+ align-items:center;
+
+ margin:20px 0 12px;
+
+}
+
+.section-title h2 {
+
+ font-size:17px;
+
+ margin:0;
+
+}
+
+.pick {
+
+ display:grid;
+
+ grid-template-columns:65px 1fr auto;
+
+ gap:11px;
+
+ align-items:center;
+
+ background:var(--card);
+
+ border:1px solid var(--line);
+
+ border-radius:14px;
+
+ padding:11px;
+
+ margin-bottom:10px;
+
+}
+
+.photo {
+
+ width:65px;
+
+ height:65px;
+
+ background:#20262d;
+
+ border-radius:10px;
+
+ display:grid;
+
+ place-items:center;
+
+ overflow:hidden;
+
+ color:#929ca5;
+
+}
+
+.photo img {
+
+ width:100%;
+
+ height:100%;
+
+ object-fit:cover;
+
+}
+
+.status {
+
+ display:inline-block;
+
+ font-size:10px;
+
+ padding:4px 8px;
+
+ border-radius:20px;
+
+ background:#1c2b36;
+
+ color:var(--blue);
+
+}
+
+.status.win {
+
+ background:#193027;
+
+ color:var(--green);
+
+}
+
+.status.loss {
+
+ background:#342123;
+
+ color:var(--red);
+
+}
+
+.status.refund {
+
+ background:#302a1e;
+
+ color:#d7c18e;
+
+}
+
+.pick-title {
+
+ font-size:14px;
+
+ font-weight:700;
+
+ margin:6px 0;
+
+ line-height:1.3;
+
+}
+
+.match {
+
+ font-size:11px;
+
+ color:var(--muted);
+
+}
+
+.odds {
+
+ border:1px solid #65553a;
+
+ border-radius:9px;
+
+ padding:9px;
+
+ color:#e3d0a7;
+
+ font-weight:bold;
+
+}
+
+.actions {
+
+ display:flex;
+
+ gap:12px;
+
+ margin-top:7px;
+
+}
+
+.actions button {
+
+ border:0;
+
+ background:none;
+
+ color:var(--muted);
+
+ font-size:11px;
+
+ padding:0;
+
+}
+
+.actions button.saved {
+
+ color:var(--gold);
+
+}
+
+.page {display:none}
+
+.page.active {display:block}
+
+.empty {
+
+ text-align:center;
+
+ border:1px dashed #303943;
+
+ border-radius:13px;
+
+ padding:25px;
+
+ color:var(--muted);
+
+ font-size:13px;
+
+}
+
+.card {
+
+ background:var(--card);
+
+ border:1px solid var(--line);
+
+ border-radius:15px;
+
+ padding:15px;
+
+ margin-bottom:12px;
+
+}
+
+.card h3 {margin-top:0}
+
+label {
+
+ display:block;
+
+ font-size:12px;
+
+ color:var(--muted);
+
+ margin:12px 0 6px;
+
+}
+
+input,textarea,select {
+
+ width:100%;
+
+ padding:12px;
+
+ border:1px solid #303943;
+
+ background:#0d1115;
+
+ color:white;
+
+ border-radius:10px;
+
+ font:inherit;
+
+}
+
+textarea {min-height:75px}
+
+.btn {
+
+ width:100%;
+
+ padding:12px;
+
+ border:0;
+
+ border-radius:10px;
+
+ background:var(--gold);
+
+ color:#17130c;
+
+ font-weight:bold;
+
+ margin-top:10px;
+
+}
+
+.secondary {
+
+ background:#20262d;
+
+ color:white;
+
+ border:1px solid #37414a;
+
+}
+
+.row {
+
+ display:flex;
+
+ gap:8px;
+
+}
+
+.row > * {flex:1;min-width:0}
+
+.bottom {
+
+ position:fixed;
+
+ bottom:0;
+
+ left:0;
+
+ right:0;
+
+ background:#101318;
+
+ border-top:1px solid var(--line);
+
+ padding:12px;
+
+ display:flex;
+
+ justify-content:space-around;
+
+}
+
+.bottom button {
+
+ border:0;
+
+ background:none;
+
+ color:var(--muted);
+
+ font-size:11px;
+
+}
+
+.bottom button.active {color:var(--gold)}
+
+.hidden {display:none!important}
+
+dialog {
+
+ background:#151a20;
+
+ color:white;
+
+ border:1px solid #65553a;
+
+ border-radius:15px;
+
+ width:90%;
+
+ max-width:500px;
+
+}
+
+dialog::backdrop {background:#000b}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+ <div class="logo">
+
+  <div class="logo-icon">P</div>
+
+  <div>
+
+   <h1>PinocchioExclu</h1>
+
+   <div class="subtitle">CERCLE PRIVÉ · PRONOSTICS SPORTIFS</div>
+
+  </div>
+
+ </div>
+
+ <button class="settings" id="settings">⚙</button>
+
+</header>
+
+<div class="container">
+
+ <main id="member">
+
+  <div class="stats">
+
+   <div class="stat">
+
+    <span>Réussite</span>
+
+    <strong class="gold" id="rate">—</strong>
+
+   </div>
+
+   <div class="stat">
+
+    <span>Gagnés</span>
+
+    <strong class="green" id="wins">0</strong>
+
+   </div>
+
+   <div class="stat">
+
+    <span>Perdus</span>
+
+    <strong class="red" id="losses">0</strong>
+
+   </div>
+
+  </div>
+
+  <nav class="tabs" id="memberTabs">
+
+   <button class="active" data-page="feed">◆ Paris</button>
+
+   <button data-page="statsPage">▥ Stats</button>
+
+   <button data-page="rulesPage">Règles</button>
+
+  </nav>
+
+  <section class="page active" id="feed">
+
+   <div class="notice">
+
+    <strong>✦ Message de l'administration</strong>
+
+    <p id="pinned">Bienvenue dans le cercle PinocchioExclu.</p>
+
+   </div>
+
+   <div class="section-title">
+
+    <h2>En cours</h2>
+
+    <span id="activeCount">0</span>
+
+   </div>
+
+   <div id="activePicks"></div>
+
+   <div class="section-title">
+
+    <h2>Terminés</h2>
+
+   </div>
+
+   <div id="finishedPicks"></div>
+
+  </section>
+
+  <section class="page" id="statsPage">
+
+   <div class="card">
+
+    <h3>Mes statistiques</h3>
+
+    <p style="color:#9ba4ad;font-size:13px">
+
+     Retrouve ici les résultats des pronostics publiés.
+
+    </p>
+
+   </div>
+
+  </section>
+
+  <section class="page" id="rulesPage">
+
+   <div class="card">
+
+    <h3>Règles du cercle</h3>
+
+    <p style="color:#9ba4ad;font-size:13px;line-height:1.8">
+
+     • Aucun pari ni paiement dans l'application.<br>
+
+     • Aucun gain n'est garanti.<br>
+
+     • Accès réservé aux personnes majeures.<br>
+
+     • Respect de la confidentialité des membres.
+
+    </p>
+
+   </div>
+
+  </section>
+
+ </main>
+
+ <main id="admin" class="hidden">
+
+  <nav class="tabs" id="adminTabs">
+
+   <button class="active" data-page="myPicks">Mes paris</button>
+
+   <button data-page="addPick">Ajouter</button>
+
+   <button data-page="members">Membres</button>
+
+  </nav>
+
+  <section class="page active" id="myPicks">
+
+   <h2>Mes pronostics</h2>
+
+   <div id="adminPicks"></div>
+
+   <div class="card">
+
+    <h3>Message épinglé</h3>
+
+    <textarea id="pinInput"></textarea>
+
+    <button class="btn secondary" id="savePin">Enregistrer</button>
+
+   </div>
+
+  </section>
+
+  <section class="page" id="addPick">
+
+   <div class="card">
+
+    <h3>Nouveau pronostic</h3>
+
+    <label>Sport</label>
+
+    <select id="sport">
+
+     <option>Football</option>
+
+     <option>Basketball</option>
+
+     <option>Tennis</option>
+
+     <option>Autre</option>
+
+    </select>
+
+    <label>Match</label>
+
+    <input id="match" placeholder="PSG – Marseille">
+
+    <label>Pronostic</label>
+
+    <input id="selection" placeholder="Victoire du PSG">
+
+    <div class="row">
+
+     <div>
+
+      <label>Cote</label>
+
+      <input id="odds" type="number" min="1" step=".01" placeholder="1.85">
+
+     </div>
+
+     <div>
+
+      <label>Date du match</label>
+
+      <input id="date" type="datetime-local">
+
+     </div>
+
+    </div>
+
+    <label>Analyse</label>
+
+    <textarea id="analysis" placeholder="Ton analyse..."></textarea>
+
+    <label>Photo</label>
+
+    <input id="photo" type="file" accept="image/*">
+
+    <h3 style="margin-top:20px">Aperçu avant publication</h3>
+
+    <div id="preview" class="empty">L'aperçu apparaîtra ici.</div>
+
+    <div class="row">
+
+     <button class="btn secondary" id="draft">Brouillon</button>
+
+     <button class="btn" id="publish">Publier</button>
+
+    </div>
+
+   </div>
+
+  </section>
+
+  <section class="page" id="members">
+
+   <div class="card">
+
+    <h3>Gestion des membres</h3>
+
+    <p style="color:#9ba4ad;font-size:13px">
+
+     La gestion des codes, des appareils et des membres sera reliée à Supabase dans la partie 2.
+
+    </p>
+
+   </div>
+
+  </section>
+
+ </main>
+
+</div>
+
+<nav class="bottom" id="bottom">
+
+ <button class="active" data-page="feed">◆<br>Paris</button>
+
+ <button data-page="statsPage">▥<br>Stats</button>
+
+ <button data-page="rulesPage">▤<br>Règles</button>
+
+</nav>
+
+<dialog id="detail">
+
+ <div id="detailContent"></div>
+
+ <button class="btn secondary" id="closeDetail">Fermer</button>
+
+</dialog>
+
+<dialog id="settingsDialog">
+
+ <h3>Paramètres</h3>
+
+ <button class="btn secondary" id="adminToggle">Basculer membre / administration (démo)</button>
+
+ <button class="btn secondary" id="closeSettings">Fermer</button>
+
+</dialog>
+
+<script>
+
+const examples = [
+
+ {id:"1",match:"PSG – Marseille · 21:00",selection:"Victoire du PSG",odds:"1.85",status:"pending",analysis:"Pronostic de démonstration.",views:0},
+
+ {id:"2",match:"Real Madrid – Séville · 20:45",selection:"Plus de 2,5 buts",odds:"1.72",status:"pending",analysis:"Pronostic de démonstration.",views:0},
+
+ {id:"3",match:"Rencontre terminée",selection:"Victoire du joueur A",odds:"1.64",status:"win",analysis:"Résultat fictif.",views:0}
+
+];
+
+let picks = JSON.parse(localStorage.getItem("px_picks") || "null") || examples;
+
+let favorites = JSON.parse(localStorage.getItem("px_favorites") || "[]");
+
+let adminMode = false;
+
+const $ = id => document.getElementById(id);
+
+const save = () => localStorage.setItem("px_picks",JSON.stringify(picks));
+
+function escapeHTML(value) {
+
+ return String(value || "").replace(/[&<>"']/g,c=>({
+
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+
+ }[c]));
+
+}
+
+function statusInfo(status) {
+
+ if(status==="win") return ["✓","Gagné","win"];
+
+ if(status==="loss") return ["×","Perdu","loss"];
+
+ if(status==="refund") return ["↺","Remboursé","refund"];
+
+ return ["◷","En cours",""];
+
+}
+
+function card(p,admin=false) {
+
+ const [symbol,label,cls] = statusInfo(p.status);
+
+ return `
+
+ <article class="pick">
+
+  <div class="photo">${p.photo ? `<img src="${p.photo}">` : "⚽"}</div>
+
+  <div>
+
+   <span class="status ${cls}">${symbol} ${label}</span>
+
+   <div class="pick-title">${escapeHTML(p.selection)}</div>
+
+   <div class="match">${escapeHTML(p.match)}</div>
+
+   <div class="actions">
+
+    <button data-favorite="${p.id}" class="${favorites.includes(p.id)?"saved":""}">
+
+     ${favorites.includes(p.id)?"★ Favori":"☆ Favori"}
+
+    </button>
+
+    <button data-detail="${p.id}">Détails</button>
+
+    ${admin?`<button data-views="${p.id}">◉ ${p.views||0} vues</button>`:""}
+
+   </div>
+
+  </div>
+
+  <div class="odds">${escapeHTML(p.odds)}</div>
+
+ </article>`;
+
+}
+
+function render() {
+
+ const active = picks.filter(p=>p.status==="pending"&&!p.draft);
+
+ const finished = picks.filter(p=>p.status!=="pending"&&!p.draft);
+
+ $("activePicks").innerHTML = active.map(p=>card(p)).join("") ||
+
+  '<div class="empty">Aucun pronostic en cours.</div>';
+
+ $("finishedPicks").innerHTML = finished.map(p=>card(p)).join("") ||
+
+  '<div class="empty">Les résultats apparaîtront ici.</div>';
+
+ $("adminPicks").innerHTML = picks.map(p=>
+
+  card(p,true)+`
+
+  <div class="row">
+
+   <button class="btn secondary" data-status="${p.id}|win">Gagné</button>
+
+   <button class="btn secondary" data-status="${p.id}|loss">Perdu</button>
+
+   <button class="btn secondary" data-status="${p.id}|refund">Remboursé</button>
+
+  </div>`).join("");
+
+ const wins=finished.filter(p=>p.status==="win").length;
+
+ const losses=finished.filter(p=>p.status==="loss").length;
+
+ const total=wins+losses;
+
+ $("wins").textContent=wins;
+
+ $("losses").textContent=losses;
+
+ $("rate").textContent=total?Math.round(wins/total*100)+"%":"—";
+
+ $("activeCount").textContent=active.length+" pronostic(s)";
+
+}
+
+function showPage(id,admin=false) {
+
+ document.querySelectorAll(admin?"#adminTabs button":"#memberTabs button")
+
+ .forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+
+ document.querySelectorAll(admin?"#admin .page":"#member .page")
+
+ .forEach(p=>p.classList.toggle("active",p.id===id));
+
+ document.querySelectorAll("#bottom button")
+
+ .forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+
+}
+
+document.addEventListener("click",e=>{
+
+ const fav=e.target.closest("[data-favorite]");
+
+ if(fav) {
+
+  const id=fav.dataset.favorite;
+
+  favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];
+
+  localStorage.setItem("px_favorites",JSON.stringify(favorites));
+
+  render(); return;
+
+ }
+
+ const detail=e.target.closest("[data-detail]");
+
+ if(detail) {
+
+  const p=picks.find(x=>x.id===detail.dataset.detail);
+
+  const [s,l,c]=statusInfo(p.status);
+
+  $("detailContent").innerHTML=`
+
+   <span class="status ${c}">${s} ${l}</span>
+
+   <h2>${escapeHTML(p.selection)}</h2>
+
+   <p>${escapeHTML(p.match)} · Cote ${escapeHTML(p.odds)}</p>
+
+   <div class="card">${escapeHTML(p.analysis)}</div>
+
+   <p>👍 &nbsp; 🔥 &nbsp; 👏</p>`;
+
+  $("detail").showModal(); return;
+
+ }
+
+ const status=e.target.closest("[data-status]");
+
+ if(status&&adminMode) {
+
+  const [id,value]=status.dataset.status.split("|");
+
+  const p=picks.find(x=>x.id===id);
+
+  p.status=value; save(); render(); return;
+
+ }
+
+ const page=e.target.closest("[data-page]");
+
+ if(page) showPage(page.dataset.page,adminMode);
+
+ const views=e.target.closest("[data-views]");
+
+ if(views) alert("Consultations disponibles après connexion Supabase.");
+
+});
+
+$("settings").onclick=()=>$("settingsDialog").showModal();
+
+$("closeSettings").onclick=()=>$("settingsDialog").close();
+
+$("closeDetail").onclick=()=>$("detail").close();
+
+$("adminToggle").onclick=()=>{
+
+ adminMode=!adminMode;
+
+ $("settingsDialog").close();
+
+ $("member").classList.toggle("hidden",adminMode);
+
+ $("admin").classList.toggle("hidden",!adminMode);
+
+ $("bottom").classList.toggle("hidden",adminMode);
+
+ if(adminMode) showPage("myPicks",true);
+
+};
+
+function updatePreview() {
+
+ const title=$("selection").value||"Ton pronostic";
+
+ const match=$("match").value||"Match / rencontre";
+
+ const odds=$("odds").value||"—";
+
+ $("preview").innerHTML=`
+
+ <article class="pick">
+
+  <div class="photo">⚽</div>
+
+  <div><span class="status">◷ En cours</span>
+
+   <div class="pick-title">${escapeHTML(title)}</div>
+
+   <div class="match">${escapeHTML(match)}</div>
+
+  </div>
+
+  <div class="odds">${escapeHTML(odds)}</div>
+
+ </article>`;
+
+}
+
+["selection","match","odds"].forEach(id=>
+
+ $(id).addEventListener("input",updatePreview));
+
+function createPick(draft) {
+
+ const selection=$("selection").value.trim();
+
+ const match=$("match").value.trim();
+
+ const odds=Number($("odds").value);
+
+ if(!selection||!match||!odds||odds<1) {
+
+  alert("Complète le match, le pronostic et une cote valide.");
+
+  return;
+
+ }
+
+ const p={
+
+  id:String(Date.now()),
+
+  sport:$("sport").value,
+
+  match,selection,
+
+  odds:odds.toFixed(2),
+
+  status:"pending",
+
+  analysis:$("analysis").value,
+
+  photo:"",
+
+  views:0,
+
+  draft
+
+ };
+
+ const file=$("photo").files[0];
+
+ const finish=()=>{
+
+  picks.unshift(p); save(); render();
+
+  alert(draft?"Brouillon enregistré sur cet appareil.":"Pronostic ajouté sur cet appareil.");
+
+ };
+
+ if(file) {
+
+  const reader=new FileReader();
+
+  reader.onload=()=>{p.photo=reader.result;finish();};
+
+  reader.readAsDataURL(file);
+
+ } else finish();
+
+}
+
+$("publish").onclick=()=>createPick(false);
+
+$("draft").onclick=()=>createPick(true);
+
+$("savePin").onclick=()=>{
+
+ $("pinned").textContent=$("pinInput").value;
+
+ alert("Message modifié dans cette démonstration.");
+
+};
+
+document.addEventListener("visibilitychange",()=>{
+
+ document.body.style.filter=document.hidden?"blur(10px)":"none";
+
+});
+
+if("serviceWorker" in navigator) {
+
+ window.addEventListener("load",()=>{
+
+  navigator.serviceWorker.register("./sw.js").catch(()=>{});
+
+ });
+
+}
+
+render();
+
+</script>
+
+</body>
+
+</html>
